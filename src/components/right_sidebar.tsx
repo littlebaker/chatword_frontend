@@ -5,7 +5,7 @@ interface RightSidebarProps {
 
 export default function RightSidebar({words}: RightSidebarProps) {
     return (
-        <div className="flex items-stretch flex-col w-64 flex-none bg-white overflow-scroll">
+        <div className="flex items-stretch flex-col w-64 flex-none bg-white overflow-auto">
             <div className="flex flex-1 flex-col">
                 <div className="flex flex-1 flex-col pt-5 pb-4 border-l border-gray-300">
                     <div className="flex justify-center text-gray-600 text-xl">Word List</div>
