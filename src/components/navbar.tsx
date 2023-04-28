@@ -1,7 +1,7 @@
 
 
 interface NavProps  {
-    "navigation": {name: string, "href": string, current?: boolean}[]
+    "navigation": {name: string, "href": string, current?: boolean, location_func: ()=> void}[]
 };
 
 export default function Navbar({navigation}: NavProps) {
@@ -29,6 +29,7 @@ export default function Navbar({navigation}: NavProps) {
                                     'text-gray-600 hover:bg-gray-50 ' +
                                     'hover:text-gray-900 group flex items-center px-2 py-4 text-sm font-medium rounded-md'
                                 }
+                                onClick={item.location_func}
                             >
                                 <div className="px-4">{item.name}</div>
                             </a>

@@ -36,3 +36,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+##  Development log
+
+- ### 2023.4.28 
+    1. 添加了最上层navbar按钮的支持
+    2. 添加了main_panel中UI的实现，按钮可用。
