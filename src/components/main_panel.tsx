@@ -4,19 +4,35 @@ import {useState} from "react";
 
 type MainProps = {
     func: "recite" | "review",
+    words: string[],
+    current_word_id: number,
+    set_current_word: (_: number) => void
 }
+type WordList = string[];
 
 export default function MainPanel(props: MainProps) {
     let [ques_type, set_ques_type] = useState("choice")
     let content_block
     if (props.func == "recite"){
         content_block = (
-            <WordRecite word={"Abandon"} descr={"v."} content={"Create unlimited unique essays, articles or content for your website or blog the fastest\n" +
-                "                        and simpliest way, no more wasting hours writing articles.Create articles automatically\n" +
-                "                        on any subject by adding keyword and use the generated articles with any of your\n" +
-                "                        favorite SEO software.Article Generator is the cheapest solution in todays time for\n" +
-                "                        article writing, our goal is to provide our customers with best quality work for\n" +
-                "                        cheapest price possible."} />
+            <>
+                <WordRecite word={props.words[props.current_word_id]} descr={"v."} content={"Create unlimited unique essays, articles or content for your website or blog the fastest\n" +
+                    "                        and simpliest way, no more wasting hours writing articles.Create articles automatically\n" +
+                    "                        on any subject by adding keyword and use the generated articles with any of your\n" +
+                    "                        favorite SEO software.Article Generator is the cheapest solution in todays time for\n" +
+                    "                        article writing, our goal is to provide our customers with best quality work for\n" +
+                    "                        cheapest price possible."} />
+
+                <div className="next flex flex-row-reverse">
+                    <button className="mr-24 py-2 px-4 bg-sky-100 rounded-xl text-sky-700 font-semibold text-xl hover:bg-sky-200"
+                        onClick={() => props.set_current_word(props.current_word_id+1)}
+                    >
+
+                        Next word
+                    </button>
+                </div>
+            </>
+
         )
     } else if (props.func == "review") {
         if (ques_type == "choice") {

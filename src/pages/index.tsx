@@ -19,6 +19,7 @@ const words = [
 
 export default function Home() {
     const [location, set_location] = useState("recite")
+    const [word_id, set_word_id] = useState(0)
 
     const navigation = [
         {name: 'Recite', href: '#', current: true, location_func: ()=> set_location("recite")},
@@ -36,10 +37,10 @@ export default function Home() {
                 <LeftSidebar/>
 
                 {/* Dashboard content*/}
-                <MainPanel func={location as any}/>
+                <MainPanel func={location as any} words={words} current_word_id={word_id} set_current_word={set_word_id}/>
 
                 {/* right sidebar */}
-                <RightSidebar words={words}/>
+                <RightSidebar words={words} current_word_id={word_id} set_current_word={set_word_id}/>
 
             </div>
 

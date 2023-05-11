@@ -1,9 +1,11 @@
 
 interface RightSidebarProps {
-    words: string[]
+    words: string[],
+    current_word_id: number,
+    set_current_word: (_: number)=> void
 }
 
-export default function RightSidebar({words}: RightSidebarProps) {
+export default function RightSidebar({words, set_current_word}: RightSidebarProps) {
     return (
         <div className="flex items-stretch flex-col w-64 flex-none bg-white overflow-auto">
             <div className="flex flex-1 flex-col">
@@ -19,9 +21,11 @@ export default function RightSidebar({words}: RightSidebarProps) {
                                 </thead>
                                 <tbody>
                                 {
-                                    words.map((word) => (
+                                    words.map((word, index) => (
                                         <tr>
-                                            <td className="border-y border-collapse border-slate-300 p-2">{word}</td>
+                                            <td className="border-y border-collapse border-slate-300 p-2 hover:cursor-pointer"
+                                                onClick={()=> set_current_word(index)}
+                                            >{word}</td>
                                         </tr>
                                     ))
                                 }
